@@ -23,11 +23,13 @@ class InitialGameScene: SKScene {
         // Add a SKNode to place the objects at the scene easier
         playerNode = SoccerPlayerNode()
         textBox = TextBoxNode("Frame 1")
+        
         playerNode?.position = CGPoint(x: 0.5, y: 100)
         textBox?.position  = CGPoint(x: -400, y: -200)
         
         self.addChild(playerNode!)
         self.addChild(textBox!)
+        self.textBox?.addChild(text!)
         
     }
     
