@@ -14,7 +14,7 @@ class TextBoxNode: SKNode {
     
     init(_ imageName: String) {
         self.image = SKSpriteNode(imageNamed: imageName)
-        self.image.anchorPoint = CGPoint(x: 0, y: 0)
+        self.image.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.image.zPosition = -3
      
         super.init()

@@ -13,28 +13,35 @@ enum characterAnim {case idle, playing, none}
 class SoccerPlayerNode: SKNode {
     var characterSprite: SKSpriteNode?
     private var lastState: characterAnim = .none
-    
+
     let idleAnimation = SKAction.animate(with: .init(withFormat: "char_idle%@", range: 1...4), timePerFrame: 0.1)
     let playingAnimation = SKAction.animate(with: .init(withFormat: "char_walk%@", range: 1...4), timePerFrame: 0.1)
     
     override init() {
+        
         characterSprite = SKSpriteNode(imageNamed: "char_idle1")
         characterSprite?.setScale(5)
         characterSprite?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+
         
         super.init()
         self.addChild(characterSprite!)
         self.playAnim(state: .idle)
-        
-        //        let body = SKPhysicsBody(circleOfRadius: characterSprite!.size.width / 2)
-        //        body.contactTestBitMask = 2
-        //        self.physicsBody = body
-        //        self.physicsBody?.allowsRotation = false
+        self.isUserInteractionEnabled = true
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        playAnim(state:.playing )
+    }
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        playAnim(state: .idle )
+    }
+    
     
     public func playAnim(state:  characterAnim) {
         switch state {
