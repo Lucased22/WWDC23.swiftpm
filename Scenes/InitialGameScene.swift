@@ -15,7 +15,7 @@ class InitialGameScene: SKScene {
     private var sceneNode = SKNode()
     // Label nodes
     private var textBox: TextBoxNode?
-    private var text: SKLabelNode?
+    private var text: TextNode?
     
     
     override func sceneDidLoad() {
@@ -23,20 +23,18 @@ class InitialGameScene: SKScene {
         // Add a SKNode to place the objects at the scene easier
         playerNode = SoccerPlayerNode()
         textBox = TextBoxNode("Frame 1")
+        text = TextNode("Futebol… Você em algum momento da vida, já viu, ouviu ou jogou futebol né? Afinal, estamos falando do esporte mais popular em todo o mundo. E é claro, quando pensamos em futebol apaixonante, lembramos do futebol Brasileiro!")
+        text?.position = CGPoint(x: 0, y: -70)
+        
         playerNode?.position = CGPoint(x: 0.5, y: 100)
-        textBox?.position  = CGPoint(x: -400, y: -200)
+        textBox?.position  = CGPoint(x: -100, y: -100)
         
         self.addChild(playerNode!)
         self.addChild(textBox!)
+        self.textBox?.addChild(text!)
         
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        playerNode?.playAnim(state:.playing )
-    }
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        playerNode?.playAnim(state: .idle )
-    }
+
     
     override func didMove(to view: SKView) {
         
