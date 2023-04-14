@@ -15,7 +15,7 @@ class SoccerPlayerNode: SKNode {
     private var lastState: characterAnim = .none
 
     let idleAnimation = SKAction.animate(with: .init(withFormat: "char_idle%@", range: 1...4), timePerFrame: 0.1)
-    let playingAnimation = SKAction.animate(with: .init(withFormat: "char_walk%@", range: 1...4), timePerFrame: 0.1)
+    let playingAnimation = SKAction.animate(with: .init(withFormat: "KickBall_%@", range: 1...4), timePerFrame: 0.1)
     
     override init() {
         
