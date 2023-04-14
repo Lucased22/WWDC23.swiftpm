@@ -18,6 +18,7 @@ class TextNode: SKNode {
         self.text.lineBreakMode = NSLineBreakMode.byWordWrapping
         self.text.numberOfLines = 0
         self.text.preferredMaxLayoutWidth = 500
+        self.text.zPosition = 5
         super.init()
         self.addChild(text)
     }
